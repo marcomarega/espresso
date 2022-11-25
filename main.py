@@ -1,13 +1,13 @@
 import sqlite3 as sql
 import sys
-from PyQt5 import uic
-from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidget, QTableWidgetItem
+from PyQt5.QtWidgets import QApplication, QMainWindow, QTableWidgetItem
+from UI import Ui_MainWindow
 
 
-class Espresso(QMainWindow):
+class Espresso(QMainWindow, Ui_MainWindow):
     def __init__(self, db_name, headers):
         super(Espresso, self).__init__()
-        uic.loadUi("UI.ui", self)
+        self.setupUi(self)
         self.headers = headers
         self.initDB(db_name)
         self.initUI()
