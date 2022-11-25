@@ -33,6 +33,15 @@ class Ui_MainWindow(object):
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+        self.toolBar = QtWidgets.QToolBar(MainWindow)
+        self.toolBar.setObjectName("toolBar")
+        MainWindow.addToolBar(QtCore.Qt.TopToolBarArea, self.toolBar)
+        self.add_action = QtWidgets.QAction(MainWindow)
+        self.add_action.setObjectName("add_action")
+        self.edit_action = QtWidgets.QAction(MainWindow)
+        self.edit_action.setObjectName("edit_action")
+        self.toolBar.addAction(self.add_action)
+        self.toolBar.addAction(self.edit_action)
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -41,3 +50,6 @@ class Ui_MainWindow(object):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "Espresso"))
         self.pushButton.setText(_translate("MainWindow", "Обновить"))
+        self.toolBar.setWindowTitle(_translate("MainWindow", "toolBar"))
+        self.add_action.setText(_translate("MainWindow", "Добавить"))
+        self.edit_action.setText(_translate("MainWindow", "Редактировать"))
